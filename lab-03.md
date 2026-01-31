@@ -1,7 +1,7 @@
 Lab 03 - Nobel laureates
 ================
-Insert your name here
-Insert date here
+Shatavia Bellmon
+1-31-26
 
 ### Load packages and data
 
