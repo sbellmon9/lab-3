@@ -20,15 +20,26 @@ instructions](https://datascience4psych.github.io/DataScience4Psych/lab03.html).
 
 ### Exercise 1
 
-Remove this text, and add your answer for Exercise 1 here. Add code
-chunks as needed. Don’t forget to label your code chunk. Do not use
-spaces in code chunk labels.
+view(nobel)
+
+The nobel dataset contains 935 observations and 26 variables. Each row
+represents a a Nobel Prize winner and their information such as why they
+won the award and personal demographics.
 
 ### Exercise 2
 
-Remove this text, and add your answer for Exercise 1 here. Add code
-chunks as needed. Don’t forget to label your code chunk. Do not use
-spaces in code chunk labels.
+``` r
+nobel_living <- nobel %>% 
+  filter(
+    is.na(died_date),
+    !is.na(country),
+    gender != "org"
+  )
+```
+
+After filtering for living laureates with available country data and
+excluding organizations, the resulting data frame contains 228
+observations.
 
 ### Exercise 3
 
