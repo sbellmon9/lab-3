@@ -92,4 +92,12 @@ The data does not appear to support Buzzfeed's claim. Most of the US based Nobel
 
 ### Exercise 6
 
-...
+```{r}
+nobel_living_science %>%
+  filter(country_us == "USA", born_country_us == "Other") %>%
+  count(born_country) %>%
+arrange(desc(n))
+```
+
+Germany and the United Kingdom are the most common.
+
