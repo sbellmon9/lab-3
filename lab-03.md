@@ -72,11 +72,36 @@ laureates were based in the US when they won their prizes”.
 
 ### Exercise 4
 
-…
+``` r
+nobel_living_science <- nobel_living_science %>%
+  mutate(
+    born_country_us = if_else(born_country == "USA", "USA", "Other")
+  )
+```
+
+``` r
+nobel_living_science %>%
+  filter(born_country_us == "USA") %>%
+  nrow()
+```
+
+    ## [1] 105
+
+105 winners were born in the US.
 
 ### Exercise 5
 
-…
+``` r
+ggplot(nobel_living_science, aes(x = country_us, fill = born_country_us)) +
+  geom_bar() +
+  facet_wrap(~ category) +
+  coord_flip()
+```
+
+![](lab-03_files/figure-gfm/unnamed-chunk-7-1.png)<!-- -->
+
+The data does not appear to support Buzzfeed’s claim. Most of the US
+based Nobel laureates were born in the USA.
 
 ### Exercise 6
 

@@ -64,11 +64,31 @@ In every category represented in this faceted bar plot, there are more nobel pri
 
 ### Exercise 4
 
-...
+```{r}
+nobel_living_science <- nobel_living_science %>%
+  mutate(
+    born_country_us = if_else(born_country == "USA", "USA", "Other")
+  )
+```
+
+```{r}
+nobel_living_science %>%
+  filter(born_country_us == "USA") %>%
+  nrow()
+```
+
+105 winners were born in the US.
 
 ### Exercise 5
 
-...
+```{r}
+ggplot(nobel_living_science, aes(x = country_us, fill = born_country_us)) +
+  geom_bar() +
+  facet_wrap(~ category) +
+  coord_flip()
+```
+
+The data does not appear to support Buzzfeed's claim. Most of the US based Nobel laureates were born in the USA. 
 
 ### Exercise 6
 
